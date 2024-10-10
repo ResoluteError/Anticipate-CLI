@@ -16,4 +16,4 @@
 
 # Deploying
 
-- Automatic via GitHub Actions
+- Create and push a branch called `release/[VERSION]` (replace version with something like 0.0.1)
