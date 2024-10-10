@@ -42,8 +42,8 @@ brews:
     install: |
       bin.install "anticipate"
     repository:
-      owner: ResoluteError
-      name: homebrew-anticipate
+      owner: ResoluteError # changeme
+      name: homebrew-anticipate # changeme
 
 changelog:
   sort: asc
