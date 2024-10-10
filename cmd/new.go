@@ -10,10 +10,10 @@ import (
 
 var description string
 
-var addCmd = &cobra.Command{
-	Use:     "add [date]",
+var newCmd = &cobra.Command{
+	Use:     "new [date]",
 	Short:   "Store a future date with a description",
-	Aliases: []string{"a"},
+	Aliases: []string{"n"},
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		dateStr := args[0]
@@ -37,7 +37,7 @@ var addCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(addCmd)
-	addCmd.Flags().StringVarP(&description, "description", "d", "", "Description of the event")
-	addCmd.MarkFlagRequired("description")
+	rootCmd.AddCommand(newCmd)
+	newCmd.Flags().StringVarP(&description, "description", "d", "", "Description of the event")
+	newCmd.MarkFlagRequired("description")
 }
