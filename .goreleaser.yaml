@@ -11,6 +11,7 @@ version: 2
 builds:
   - env:
       - CGO_ENABLED=0
+    binary: anticipate
     goos:
       - linux
       - windows
@@ -43,7 +44,7 @@ brews:
       bin.install "anticipate"
     repository:
       owner: ResoluteError # changeme
-      name: homebrew-anticipate # changeme
+      name: homebrew-anticipate-cli # changeme
 
 changelog:
   sort: asc

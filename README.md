@@ -10,6 +10,7 @@
 
 # Setup necessary for github actions and homebrew deployment
 
+- Update the name_template in [.goreleaser.yaml](./.goreleaser.yaml)
 - Create a repository to host the CLI or fork this repository (e.g. `Anticipate-CLI`)
 - Create a homebrew tap repository (e.g. `homebrew-[CLI_REPO_NAME]`) (e.g. `homebrew-anticipate-cli`)
 - Create a [GitHub Personal Access Token (PAT)](https://github.com/settings/tokens?type=beta)
