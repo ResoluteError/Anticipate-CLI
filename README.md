@@ -8,10 +8,10 @@
 - `go get github.com/manifoldco/promptui`
 - `goreleaser init`
 
-# Setup necessary for github actions
+# Setup necessary for github actions and homebrew deployment
 
 - Create a repository to host the CLI or fork this repository (e.g. `Anticipate-CLI`)
-- Create a homebrew cask repository (e.g. `homebrew-[CLI_REPO_NAME]`) (e.g. `homebrew-anticipate-cli`)
+- Create a homebrew tap repository (e.g. `homebrew-[CLI_REPO_NAME]`) (e.g. `homebrew-anticipate-cli`)
 - Create a [GitHub Personal Access Token (PAT)](https://github.com/settings/tokens?type=beta)
   - Requires Read & Write permission for the contents of the homebrew repo
   - Requires Read & Write permission for the contents of the main cli repo
@@ -19,7 +19,7 @@
 
 # Local Testing
 
-- `go run main.go add 2025-03-17 -d "Birthday"`
+- `go run main.go new 2025-03-17 -d "Birthday"`
 - `go run main.go countdown`
 - `go run main.go remove`
 

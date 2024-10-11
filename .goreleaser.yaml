@@ -20,9 +20,9 @@ builds:
 
 archives:
   - format: tar.gz
-    # this name template makes the OS and Arch compatible with the results of `uname`.
+    # changeme: rename the archive name
     name_template: >-
-      {{ .ProjectName }}_
+      anticipate_
       {{- title .Os }}_
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
