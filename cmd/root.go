@@ -1,4 +1,3 @@
-// cmd/root.go
 package cmd
 
 import (
@@ -8,9 +7,6 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
-
-var cfgFile string
-var cfgDir string
 
 var rootCmd = &cobra.Command{
 	Use:   "anticipate",
@@ -25,13 +21,9 @@ func init() {
 	home, err := os.UserHomeDir()
 	cobra.CheckErr(err)
 
-	cfgDir = filepath.Join(home, ".anticipate")
-	cfgFile = filepath.Join(cfgDir, "config.json")
+	cfgDir := filepath.Join(home, ".anticipate")
+	cfgFile := filepath.Join(cfgDir, "config.json")
 
-	cobra.OnInitialize(initConfig)
-}
-
-func initConfig() {
 	viper.SetConfigType("json")
 	viper.SetConfigFile(cfgFile)
 

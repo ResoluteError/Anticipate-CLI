@@ -11,27 +11,35 @@ import (
 var description string
 
 var newCmd = &cobra.Command{
-	Use:     "new [date]",
-	Short:   "Store a future date with a description",
-	Aliases: []string{"n"},
+	Use:     "new",
+	Short:   "Create a new event to anticipate",
+	Aliases: []string{"n", "a", "add"},
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		dateStr := args[0]
-		_, err := time.Parse("2006-01-02", dateStr)
+		date, err := time.Parse("2006-01-02", dateStr)
+
 		if err != nil {
-			fmt.Println("Please enter the date in YYYY-MM-DD format.")
-			return
+			cobra.CheckErr("Invalid date format. Please use YYYY-MM-DD")
+		}
+
+		if date.Before(time.Now()) {
+			cobra.CheckErr("Date cannot be in the past")
 		}
 
 		events := viper.GetStringMap("events")
+
 		if events == nil {
 			events = make(map[string]interface{})
+		}
+
+		if _, found := events[dateStr]; found {
+			cobra.CheckErr("Event already exists on this date")
 		}
 
 		events[dateStr] = description
 		viper.Set("events", events)
 		viper.WriteConfig()
-
 		fmt.Printf("Stored: %s - %s\n", dateStr, description)
 	},
 }
